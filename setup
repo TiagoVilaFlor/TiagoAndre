@@ -1,7 +1,7 @@
 Create a new repository on the command line
 
 touch README.md  #optional
-git init
+git init #
 git add README.md   #optional
 git commit -m "first commit"
 git remote add origin https://github.com/TiagoVilaFlor/TiagoAndre.git
