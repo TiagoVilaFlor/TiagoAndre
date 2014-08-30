@@ -1,0 +1,52 @@
+Simple Steps to create a Project in GitHub
+	1) After Login, search "+New Repository" button, and select this
+	2) Choose a Repository name
+	3) Then choose a "Create repository"
+
+Create a folder where you want to have the git Repository, and inside the folder create a simple file(text) or put a simple img...
+
+Now that you create a repository and a folder, you open a terminal to do your first commit( inside the folder)
+	4)git init
+	5)git status        #you see that have an untracked file
+	6)git add text	
+	7)git status		#the untracked file already disappear
+
+	8)git remote add origin https://github.com/TiagoVilaFlor/GitTest.git		 #only do this step when you create the 					#Repository
+
+	9)git push -u origin master
+
+
+Create an other Branch
+	10)git branch dev
+	11)git push -u origin dev
+
+See the present branch
+	12) git branch
+
+Select a different branch
+	13)git checkout dev
+
+Create and change to another branch inside a dev branch
+	14)git branch feature1
+	15)git push -u dev feature1
+	16)git checkout feature1
+
+	if you want do the step 14 and 16 in one line
+		17)git checkout -b feature1 dev
+		18)git push -u dev feature1
+
+Merge the changes in feature1-branch with dev-branch
+	19)git checkout dev
+	20)git merge --no-ff feature1
+	21)git push -u origin dev
+
+Restore a deleted file (let's say the file name was text.txt)
+	22)git rev-list -n 1 HEAD -- <file_path>
+	   # Find the last commit that affected the given path, i.e.,
+	   # affected the deleted file (in this case <file_path> would
+	   # be changed by text.txt, if the file was in project root folder.
+	   # The above command will print that commit id, that we will need
+	   # for the next step, let's say id is 12345.
+	23)git checkout 12345^ -- text.txt
+	   # Checkout the version at the commit before the deletion of the
+	   # file, and now you have recover your file.
